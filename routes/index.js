@@ -33,7 +33,7 @@ router.get('/api/cars', (req, res) => {
 });
 
 
-// Get Single Car (First Way)
+// Get Single Car
 
 router.get('/api/car/:id', (req, res) => {
     Car.findById(req.params.id, (err, data) => {
@@ -95,7 +95,6 @@ router.delete('/api/car/:id', (req, res) => {
 
     Car.findByIdAndRemove(req.params.id, (err, data) => {
         if(!err) {
-            // res.send(data);
             res.status(200).json({code: 200, message: 'Car deleted', deleteCar: data})
         } else {
             console.log(err);
